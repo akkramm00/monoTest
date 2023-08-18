@@ -10,6 +10,10 @@ class MainController
     #[Route('/')]
     public function test()
     {
-        dd('salut !');
+        $x = 5;
+        $y = 25;
+
+        $result = $x * $y;
+        dd($result);
     }
 }
