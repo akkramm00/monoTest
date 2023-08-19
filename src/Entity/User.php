@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -96,5 +96,26 @@ class User implements UserInterface
 
     public function eraseCredentials(): void
     {
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password
+
+        ));
+    }
+    public function unserialize($seruialized): void
+    {
+        list(
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password
+
+        ) = unserialize($seruialized);
     }
 }
