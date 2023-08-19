@@ -9,15 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/user/{name}')]
-    public function test($name)
+    #[Route('/')]
+    public function test()
     {
+        return $this->render('main.html.twig');
+    }
 
-        $age = 19;
 
-        return $this->render('main.html.twig', [
-            'prenom' => $name,
-            'age' => $age
-        ]);
+
+    #[Route('/contact')]
+    public function contact()
+    {
+        return $this->render('contact.html.twig');
     }
 }
