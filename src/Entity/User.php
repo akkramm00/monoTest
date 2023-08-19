@@ -68,7 +68,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
 
-        $roles = $this->roles;
+        $roles = $this->role;
 
         $roles[] = 'ROLE_USER';
 
@@ -83,6 +83,11 @@ class User implements UserInterface
         return $this;
     }
 
+    // Création d'une method 'isAdmin'
+    public function isAdmin()
+    {
+        return in_array('ROLE_ADMIN', $this->getRoles());
+    }
 
     public function getUserIdentifier(): string
     {
