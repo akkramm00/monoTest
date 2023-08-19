@@ -25,20 +25,20 @@ class MainController extends AbstractController
 
 
 
-    // #[Route('/contact', name: 'contact')]
-    // public function contact()
-    // {
-    //     return $this->render('contact.html.twig');
-    // }
+    #[Route('/contact', name: 'contact')]
+    public function contact()
+    {
+        return $this->render('contact.html.twig');
+    }
 
     // On peut passer un "id" a la fonction et a la route, puis le recuperer au niveau de la page contact.html.twig
     //(voir main.html.twig au niveau du <h1>), ce qui donne le code suivant:
 
-    #[Route('/contact/{id}', name: 'contact')]
-    public function contact($id)
-    {
-        return $this->render('contact.html.twig', [
-            'id' => $id
-        ]);
-    }
+    // #[Route('/contact/{id}', name: 'contact')]
+    // public function contact($id)
+    // {
+    //     return $this->render('contact.html.twig', [
+    //         'id' => $id
+    //     ]);
+    // }
 }
